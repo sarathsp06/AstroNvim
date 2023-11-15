@@ -14,6 +14,7 @@ return {
         selection_caret = get_icon("Selected", 1),
         path_display = { "truncate" },
         sorting_strategy = "ascending",
+        hidden = { file_browser = true, folder_browser = true },
         layout_config = {
           horizontal = { prompt_position = "top", preview_width = 0.55 },
           vertical = { mirror = false },

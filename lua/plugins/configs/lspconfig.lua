@@ -43,6 +43,23 @@ return function(_, _)
     vim.api.nvim_exec_autocmds("FileType", {})
     require("astronvim.utils").event "LspSetup"
   end
+
+  local lspconfig = require "lspconfig"
+  lspconfig.gopls.setup {
+    settings = {
+      gopls = {
+        buildFlags = {
+          "-tags=integration",
+        },
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+        gofumpt = true,
+      },
+    },
+  }
+
   if require("astronvim.utils").is_available "mason-lspconfig.nvim" then
     vim.api.nvim_create_autocmd("User", {
       desc = "set up LSP servers after mason-lspconfig",
